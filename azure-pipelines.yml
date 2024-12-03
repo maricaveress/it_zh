@@ -10,8 +10,12 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
+- task: Checkout@1
+  displayName: 'Checkout the repository'
+
 - task: PublishPipelineArtifact@1
+  displayName: 'Publish index.html as an artifact'
   inputs:
-    targetPath: '$(System.DefaultWorkingDirectory)'
-    artifact: 'html-artifact'
+    targetPath: '$(System.DefaultWorkingDirectory)/index.html' 
+    artifact: 'html-artifact' 
 
